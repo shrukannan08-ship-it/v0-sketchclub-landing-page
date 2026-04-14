@@ -4,9 +4,9 @@ import { motion } from "framer-motion"
 import { useState, useEffect } from "react"
 
 const navLinks = [
-  { href: "#gallery", label: "// Gallery" },
-  { href: "#sprints", label: "// Sprints" },
-  { href: "#terminal", label: "// Terminal" },
+  { href: "#gallery", label: "Gallery" },
+  { href: "#sprints", label: "Events" },
+  { href: "#terminal", label: "Join Us" },
 ]
 
 export function Navbar() {
@@ -72,7 +72,7 @@ export function Navbar() {
             whileTap={{ scale: 0.95 }}
             className="font-mono text-sm px-5 py-2.5 rounded-xl bg-primary text-primary-foreground hover:bg-primary/90 transition-colors relative overflow-hidden group"
           >
-            <span className="relative z-10">Join.init()</span>
+            <span className="relative z-10">Get Started</span>
             <div className="absolute inset-0 bg-gradient-to-r from-[#f472b6] to-primary opacity-0 group-hover:opacity-100 transition-opacity" />
           </motion.button>
         </div>

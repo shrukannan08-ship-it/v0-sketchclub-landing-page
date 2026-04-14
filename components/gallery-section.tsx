@@ -63,15 +63,15 @@ float sdBox(vec3 p, vec3 b) {
 ]
 
 const projects = [
-  { title: "Particle Symphony", author: "@neural_artist", likes: 342 },
-  { title: "Shader Dreams", author: "@pixel_witch", likes: 289 },
-  { title: "Flow Fields", author: "@code_poet", likes: 456 },
-  { title: "Perlin Noise Art", author: "@math_magic", likes: 198 },
-  { title: "CSS Animations", author: "@style_guru", likes: 521 },
-  { title: "Fractal Explorer", author: "@infinite_loop", likes: 367 },
-  { title: "WebGL Canvas", author: "@3d_dreamer", likes: 412 },
-  { title: "Sine Waves", author: "@wave_rider", likes: 234 },
-  { title: "Ray Marching", author: "@shadow_caster", likes: 478 },
+  { title: "Generative Landscapes", author: "Aditya Kumar", likes: 342 },
+  { title: "Neural Style Transfer", author: "Priya Sharma", likes: 289 },
+  { title: "Interactive Data Viz", author: "Rahul Menon", likes: 456 },
+  { title: "Procedural Patterns", author: "Sneha Reddy", likes: 198 },
+  { title: "Motion Graphics Lab", author: "Vikram Singh", likes: 521 },
+  { title: "Fractal Geometry", author: "Ananya Patel", likes: 367 },
+  { title: "Real-time 3D Engine", author: "Karthik Rao", likes: 412 },
+  { title: "Audio Visualizer", author: "Meera Iyer", likes: 234 },
+  { title: "Volumetric Rendering", author: "Arjun Nair", likes: 478 },
 ]
 
 function TerminalCard({ 
@@ -126,7 +126,7 @@ function TerminalCard({
           <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-card/90 to-transparent">
             <h3 className="font-mono text-sm text-foreground mb-1">{project.title}</h3>
             <div className="flex items-center justify-between">
-              <span className="font-mono text-xs text-primary">{project.author}</span>
+              <span className="text-xs text-primary">{project.author}</span>
               <span className="font-mono text-xs text-muted-foreground flex items-center gap-1">
                 <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" />
@@ -188,14 +188,14 @@ export function GallerySection() {
           className="text-center mb-16"
         >
           <span className="font-mono text-sm text-[#f472b6] mb-4 block">
-            {"// recent_works"}
+            Featured Projects
           </span>
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
-            <span className="text-foreground">The </span>
-            <span className="text-primary">Gallery</span>
+            <span className="text-foreground">Member </span>
+            <span className="text-primary">Showcase</span>
           </h2>
-          <p className="font-mono text-muted-foreground max-w-md mx-auto">
-            {"<Collection>"} Curated works from our creative coders {"</Collection>"}
+          <p className="text-muted-foreground max-w-md mx-auto">
+            Explore creative coding projects built by our talented community members
           </p>
         </motion.div>
 
