@@ -5,6 +5,7 @@ import { useState, useEffect } from "react"
 
 const navLinks = [
   { href: "#gallery", label: "Gallery" },
+  { href: "#sketchbook", label: "Sketchbook" },
   { href: "#webpreneur", label: "Workshops" },
   { href: "#sprints", label: "Events" },
   { href: "#terminal", label: "Join Us" },
@@ -41,15 +42,34 @@ export function Navbar() {
           {/* Logo */}
           <motion.a
             href="#"
-            className="flex items-center gap-2"
+            className="flex items-center gap-3"
             whileHover={{ scale: 1.02 }}
           >
-            <div className="w-8 h-8 rounded-lg bg-primary/20 border border-primary/40 flex items-center justify-center">
-              <span className="text-primary font-mono text-sm font-bold">{"<>"}</span>
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary via-[#a78bfa] to-[#f472b6] p-0.5 shadow-lg shadow-primary/30">
+              <div className="w-full h-full rounded-[10px] bg-background flex items-center justify-center">
+                <svg 
+                  viewBox="0 0 24 24" 
+                  className="w-5 h-5 text-primary"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  {/* Pencil/Brush Icon */}
+                  <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" />
+                  <path d="m15 5 4 4" />
+                </svg>
+              </div>
             </div>
-            <span className="font-mono text-lg font-bold text-foreground tracking-tight">
-              sketch<span className="text-primary">club</span>
-            </span>
+            <div className="flex flex-col">
+              <span className="text-lg font-bold text-foreground tracking-tight leading-none">
+                Sketch<span className="text-primary">club</span>
+              </span>
+              <span className="text-[10px] text-muted-foreground tracking-widest uppercase">
+                Creative Coding
+              </span>
+            </div>
           </motion.a>
 
           {/* Nav Links */}
