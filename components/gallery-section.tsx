@@ -136,6 +136,27 @@ function TerminalCard({
   project: typeof projects[0] 
 }) {
   const [isHovered, setIsHovered] = useState(false)
+  const [rotateX, setRotateX] = useState(0)
+  const [rotateY, setRotateY] = useState(0)
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const card = e.currentTarget
+    const rect = card.getBoundingClientRect()
+    const x = e.clientX - rect.left
+    const y = e.clientY - rect.top
+    const centerX = rect.width / 2
+    const centerY = rect.height / 2
+    const rotateXVal = ((y - centerY) / centerY) * -10
+    const rotateYVal = ((x - centerX) / centerX) * 10
+    setRotateX(rotateXVal)
+    setRotateY(rotateYVal)
+  }
+
+  const handleMouseLeave = () => {
+    setIsHovered(false)
+    setRotateX(0)
+    setRotateY(0)
+  }
 
   return (
     <motion.div
@@ -144,10 +165,30 @@ function TerminalCard({
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
       onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
       className="relative group"
+      style={{ perspective: "1000px" }}
     >
-      <div className="rounded-xl overflow-hidden bg-card border border-border hover:border-primary/50 transition-all duration-300 shadow-lg hover:shadow-primary/10">
+      <motion.div 
+        animate={{ 
+          rotateX: rotateX, 
+          rotateY: rotateY,
+          scale: isHovered ? 1.02 : 1
+        }}
+        transition={{ type: "spring", stiffness: 300, damping: 20 }}
+        className="rounded-xl overflow-hidden bg-card border border-border hover:border-primary/50 transition-colors duration-300 shadow-lg hover:shadow-2xl hover:shadow-primary/20"
+        style={{ transformStyle: "preserve-3d" }}
+      >
+        {/* Glowing Edge Effect */}
+        <div 
+          className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+          style={{
+            background: `linear-gradient(135deg, rgba(139, 92, 246, 0.3) 0%, transparent 50%, rgba(244, 114, 182, 0.3) 100%)`,
+            filter: "blur(1px)",
+            transform: "translateZ(-1px)"
+          }}
+        />
         {/* MacOS Window Header */}
         <div className="flex items-center gap-2 px-4 py-3 bg-secondary/80 border-b border-border">
           <div className="w-3 h-3 rounded-full bg-[#ff5f57]" />
@@ -243,7 +284,7 @@ function TerminalCard({
             </motion.pre>
           </motion.div>
         </div>
-      </div>
+      </motion.div>
     </motion.div>
   )
 }
