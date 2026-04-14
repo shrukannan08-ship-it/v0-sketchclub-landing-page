@@ -63,15 +63,69 @@ float sdBox(vec3 p, vec3 b) {
 ]
 
 const projects = [
-  { title: "Generative Landscapes", author: "Aditya Kumar", likes: 342 },
-  { title: "Neural Style Transfer", author: "Priya Sharma", likes: 289 },
-  { title: "Interactive Data Viz", author: "Rahul Menon", likes: 456 },
-  { title: "Procedural Patterns", author: "Sneha Reddy", likes: 198 },
-  { title: "Motion Graphics Lab", author: "Vikram Singh", likes: 521 },
-  { title: "Fractal Geometry", author: "Ananya Patel", likes: 367 },
-  { title: "Real-time 3D Engine", author: "Karthik Rao", likes: 412 },
-  { title: "Audio Visualizer", author: "Meera Iyer", likes: 234 },
-  { title: "Volumetric Rendering", author: "Arjun Nair", likes: 478 },
+  { 
+    title: "Generative Landscapes", 
+    author: "Aditya Kumar", 
+    likes: 342,
+    gradient: "from-[#8b5cf6] via-[#6366f1] to-[#3b82f6]",
+    tag: "p5.js"
+  },
+  { 
+    title: "Neural Style Transfer", 
+    author: "Priya Sharma", 
+    likes: 289,
+    gradient: "from-[#f472b6] via-[#ec4899] to-[#db2777]",
+    tag: "ML"
+  },
+  { 
+    title: "Interactive Data Viz", 
+    author: "Rahul Menon", 
+    likes: 456,
+    gradient: "from-[#60a5fa] via-[#38bdf8] to-[#22d3d1]",
+    tag: "D3.js"
+  },
+  { 
+    title: "Procedural Patterns", 
+    author: "Sneha Reddy", 
+    likes: 198,
+    gradient: "from-[#fb923c] via-[#f97316] to-[#ea580c]",
+    tag: "GLSL"
+  },
+  { 
+    title: "Motion Graphics Lab", 
+    author: "Vikram Singh", 
+    likes: 521,
+    gradient: "from-[#a78bfa] via-[#8b5cf6] to-[#7c3aed]",
+    tag: "Framer"
+  },
+  { 
+    title: "Fractal Geometry", 
+    author: "Ananya Patel", 
+    likes: 367,
+    gradient: "from-[#4ade80] via-[#22c55e] to-[#16a34a]",
+    tag: "Canvas"
+  },
+  { 
+    title: "Real-time 3D Engine", 
+    author: "Karthik Rao", 
+    likes: 412,
+    gradient: "from-[#f472b6] via-[#c084fc] to-[#8b5cf6]",
+    tag: "Three.js"
+  },
+  { 
+    title: "Audio Visualizer", 
+    author: "Meera Iyer", 
+    likes: 234,
+    gradient: "from-[#fbbf24] via-[#f59e0b] to-[#d97706]",
+    tag: "Web Audio"
+  },
+  { 
+    title: "Volumetric Rendering", 
+    author: "Arjun Nair", 
+    likes: 478,
+    gradient: "from-[#60a5fa] via-[#818cf8] to-[#a78bfa]",
+    tag: "WebGL"
+  },
 ]
 
 function TerminalCard({ 
@@ -105,29 +159,47 @@ function TerminalCard({
         </div>
 
         {/* Card Content */}
-        <div className="relative aspect-square bg-gradient-to-br from-secondary via-card to-secondary overflow-hidden">
-          {/* Abstract Background Pattern */}
-          <div className="absolute inset-0 opacity-30">
+        <div className="relative aspect-square overflow-hidden">
+          {/* Gradient Background */}
+          <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-80`} />
+          
+          {/* Mesh Pattern Overlay */}
+          <div 
+            className="absolute inset-0 opacity-20"
+            style={{
+              backgroundImage: `
+                linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)
+              `,
+              backgroundSize: '20px 20px'
+            }}
+          />
+          
+          {/* Floating Shapes */}
+          <div className="absolute inset-0 overflow-hidden">
             <div 
-              className="absolute inset-0"
-              style={{
-                backgroundImage: `radial-gradient(circle at ${30 + index * 10}% ${40 + index * 5}%, var(--primary) 0%, transparent 50%)`,
-              }}
+              className="absolute w-32 h-32 rounded-full bg-white/10 blur-xl"
+              style={{ top: '10%', left: '10%' }}
             />
             <div 
-              className="absolute inset-0"
-              style={{
-                backgroundImage: `radial-gradient(circle at ${70 - index * 5}% ${60 + index * 3}%, #f472b6 0%, transparent 40%)`,
-              }}
+              className="absolute w-24 h-24 rounded-full bg-black/20 blur-xl"
+              style={{ bottom: '20%', right: '15%' }}
             />
           </div>
 
+          {/* Tech Tag */}
+          <div className="absolute top-4 right-4">
+            <span className="px-3 py-1 rounded-full bg-black/30 backdrop-blur-sm text-white text-xs font-medium">
+              {project.tag}
+            </span>
+          </div>
+
           {/* Project Info */}
-          <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-card/90 to-transparent">
-            <h3 className="font-mono text-sm text-foreground mb-1">{project.title}</h3>
+          <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
+            <h3 className="text-base font-semibold text-white mb-1">{project.title}</h3>
             <div className="flex items-center justify-between">
-              <span className="text-xs text-primary">{project.author}</span>
-              <span className="font-mono text-xs text-muted-foreground flex items-center gap-1">
+              <span className="text-xs text-white/80">{project.author}</span>
+              <span className="text-xs text-white/80 flex items-center gap-1">
                 <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" />
                 </svg>

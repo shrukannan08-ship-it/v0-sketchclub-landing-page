@@ -75,14 +75,14 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 font-mono"
+          className="text-lg md:text-xl max-w-2xl mx-auto mb-12 font-medium tracking-wide"
         >
-          <span className="text-[#60a5fa]">Where</span>{" "}
-          <span className="text-[#fb923c]">logic</span>{" "}
-          <span className="text-muted-foreground">meets</span>{" "}
-          <span className="text-[#f472b6]">art</span>{" "}
-          <span className="text-muted-foreground">at</span>{" "}
-          <span className="text-primary">SRM</span>
+          <span className="text-[#60a5fa]">Design</span>
+          <span className="text-muted-foreground">.</span>{" "}
+          <span className="text-[#f472b6]">Develop</span>
+          <span className="text-muted-foreground">.</span>{" "}
+          <span className="text-[#4ade80]">Deliver</span>
+          <span className="text-muted-foreground">.</span>
         </motion.p>
 
         <motion.div
