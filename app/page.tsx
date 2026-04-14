@@ -1,7 +1,6 @@
 import { Navbar } from "@/components/navbar"
 import { HeroSection } from "@/components/hero-section"
 import { GallerySection } from "@/components/gallery-section"
-import { SketchbookSection } from "@/components/sketchbook-section"
 import { WebpreneurSection } from "@/components/webpreneur-section"
 import { SprintsSection } from "@/components/sprints-section"
 import { TerminalSection } from "@/components/terminal-section"
@@ -13,7 +12,6 @@ export default function Home() {
       <Navbar />
       <HeroSection />
       <GallerySection />
-      <SketchbookSection />
       <WebpreneurSection />
       <SprintsSection />
       <TerminalSection />
